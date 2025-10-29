@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="d1"></div>
+    <script type="text/babel">
+         function Reviews(){
+        // state
+           var[review,setReview]=React.useState([
+                                        {
+                                            image: "https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=1024x1024&w=0&k=20&c=z8_rWaI8x4zApNEEG9DnWlGXyDIXe-OmsAyQ5fGPVV8=",
+                                            name: "Alice Johnson",
+                                            role: "Frontend Developer",
+                                            about: "Alice specializes in building responsive UIs with React."
+                                        },
+                                        {
+                                            image: "data:image/jpeg;base64,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",
+                                            name: "Bob Smith",
+                                            role: "Backend Developer",
+                                            about: "Bob is skilled in Node.js and database management."
+                                        },
+                                        {
+                                           image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-nAzCSwtDCMRCLClrkKHKle7rCXrElRyhOA&s",
+                                           name: "Charlie Lee",
+                                           role: "UI/UX Designer",
+                                           about: "Charlie designs intuitive and user-friendly interfaces."
+                                        }
+                                    ]);
+            var[i,setI]=React.useState(0)
+
+        // action
+        function prev() {
+         if (i > 0) 
+         setI(i - 1);
+        }
+
+        function next() {
+         if (i < review.length - 1) 
+         setI(i + 1);
+        }
+
+
+        // UI
+        return (
+            <div>
+                <h1>Edupoly Reviews</h1>
+                <div>
+                <button onClick={()=>{prev()}}>Previous</button>
+                <img src={review[i].image} style={{width:"100px"}}/>
+                <button onClick={()=>{next()}}>Next</button>
+                </div>
+            </div>
+        )
+       }
+       ReactDOM.render(<Reviews/>,document.getElementById("d1"))
+    </script>
+</body>
+</html>

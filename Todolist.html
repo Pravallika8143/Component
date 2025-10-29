@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body></body>
+    <div id="d1"></div>
+    <script type="text/babel">
+       function Todolist(){
+        // state
+           var[todo,settodo]=React.useState(["pravallika","uma","raji","mounika"])
+        // action
+        function add(){
+            var newtodo=document.getElementById("list").value;
+            settodo([...todo,newtodo]);
+            
+        }
+
+        // UI
+        return (
+            <div style={{border:"6px solid red",padding:"10px"}}>
+                <div style={{border:"2px solid black",padding:"10px"}}>
+                <h1>Todo List</h1>
+                <input type="text" id="list"/>
+                <button onClick={add}>Add Todo</button>
+                <ul>
+                    {
+                      todo.map((settodo)=>{
+                           return (
+                            <li>{settodo}</li>
+                           )
+                      })
+                    }
+                </ul>
+                </div>
+            </div>
+        )
+       }
+       ReactDOM.render(<Todolist/>,document.getElementById("d1"))
+    </script>
+</body>
+</html>

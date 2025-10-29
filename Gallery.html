@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body></body>
+    <div id="d1"></div>
+    <script type="text/babel">
+       function Gallery(){
+        // state
+           var[img,setImg]=React.useState(["https://images-na.ssl-images-amazon.com/images/I/71tdJLduL9L._AC_SX425_.jpg",
+                                            "https://cdn.britannica.com/68/195168-050-BBAE019A/football.jpg",
+                                            "https://pngimg.com/uploads/cricket/cricket_PNG135.png"
+                                        ]);
+            var[i,setI]=React.useState(0)
+
+        // action
+        function prev(){
+            setI(i-1);
+        
+        }
+        function next(){
+            setI(i+1)
+            
+        }
+
+        // UI
+        return (
+            <div>
+                <button onClick={()=>{prev()}}>Previous</button>
+                <img src={img[i]} style={{width:"100px"}}/>
+                <button onClick={()=>{next()}}>Next</button>
+            </div>
+        )
+       }
+       ReactDOM.render(<Gallery/>,document.getElementById("d1"))
+    </script>
+</body>
+</html>

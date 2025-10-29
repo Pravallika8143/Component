@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="d1"></div>
+    <script type="text/babel">
+    function Students(){
+        // state
+        var [students,fun]=React.useState([
+           {
+            firstname:'Ravi',
+            lastname:'Sastri',
+            gender:'male'
+          },
+          {
+            firstname:'Sachin',
+            lastname:'Tendulkar',
+            gender:'male'
+          },
+          {
+            firstname:'Mithali',
+            lastname:'Raj',
+            gender:'female'
+          },
+          {
+            firstname:'Rohit',
+            lastname:'Sharma',
+            gender:'male'
+          },
+          {
+            firstname:'Smriti',
+            lastname:'Mandhana',
+            gender:'female'
+          },
+          {
+            firstname:'Virat',
+            lastname:'Kohli',
+            gender:'male'
+          },
+        ]);
+        // action
+        function sortByFirstname(){
+            var temp=[...students];
+            temp.sort(function(a,b){
+                if(a.firstname>b.firstname){
+                    return 1;
+                }else{
+                    return -1
+                }
+            })
+            fun([...temp])
+        }
+        function sortByLastname(){
+            var temp=[...students];
+            temp.sort(function(a,b){
+                if(a.lastname>b.lastname){
+                    return 1;
+                }else{
+                    return -1
+                }
+            })
+            fun([...temp])
+        }
+        function sortByGender(){
+            var temp=[...students];
+            temp.sort(function(a,b){
+                if(a.gender>b.gender){
+                    return 1;
+                }else{
+                    return -1
+                }
+            })
+            fun([...temp])
+        }
+
+        //UI
+        return(
+          <div style={{border:"2px solid",width:"300px",marginLeft:"10px",padding:"10px"}}>
+            <h1 style={{marginLeft:"10px"}}>Students</h1>
+            <table border="1px solid" style={{marginLeft:"10px"}}>
+                <thead>
+                    <tr>
+                        <th onClick={()=>{sortByFirstname()}} >Firstname</th>
+                        <th onClick={()=>{sortByLastname()}}>Lastname</th>
+                        <th onClick={()=>{sortByGender()}}>Gender</th>
+                
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        students.map((students)=>{
+                            return(
+                            <tr>
+                                <td>{students.firstname}</td>
+                                <td>{students.lastname}</td>
+                                <td>{students.gender}</td>
+                            </tr>
+                            )
+                        })
+                    }
+                </tbody>
+            </table>
+          </div>
+        )
+    }
+    ReactDOM.render(<Students/>,document.getElementById("d1"))
+    </script>
+</body>
+</html>
